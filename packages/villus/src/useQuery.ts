@@ -77,7 +77,7 @@ function useQuery<TData = any, TVars = QueryVariables, TMappedData = TData | nul
     onError: errorHook,
   } = normalizeOptions(opts);
   let currentFetchOnMount = fetchOnMount;
-  const data: Ref<TMappedData> = ref(defaultMapper({ data: null, error: null }));
+  const data: Ref<TMappedData> = ref(mapData({ data: null, error: null }));
   let lastResult: OperationResult<TData> = { data: null, error: null };
   const isFetching = ref<boolean>(fetchOnMount ?? false);
   const isDone = ref(false);
